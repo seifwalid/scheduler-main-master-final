@@ -41,14 +41,11 @@ public class Match {
     private Schedule schedule;
 
     @ManyToOne
-
-
     @JoinColumn(name = "team1_id")
     private Team homeTeam;
 
     @ManyToOne
-
-        @JoinColumn(name = "team2_id")
+    @JoinColumn(name = "team2_id")
     private Team awayTeam;
 
     @ManyToOne
@@ -56,7 +53,6 @@ public class Match {
     private Referee referee;
     
     @ManyToOne
-
     @JoinColumn(name = "time_slot_id") // Use the actual column name in your database
     private TimeSlots timeSlot;
     

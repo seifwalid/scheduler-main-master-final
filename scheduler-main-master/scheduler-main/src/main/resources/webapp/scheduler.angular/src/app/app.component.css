@@ -1,0 +1,20 @@
+.app-container {
+  display: grid;
+  grid-template:
+    "navbar navbar" auto
+    "sidebar form" 1fr
+    / auto 1fr;
+  height: 100vh;
+}
+
+app-navbar {
+  grid-area: navbar;
+}
+
+app-sidebar {
+  grid-area: sidebar;
+}
+
+.form {
+  grid-area: form;
+}
