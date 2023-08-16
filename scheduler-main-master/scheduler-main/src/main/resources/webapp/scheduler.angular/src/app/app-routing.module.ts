@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddMatchFormComponent } from './components/add-match-form/add-match-form.component';
-import { DeleteMatchFormComponent } from './components/delete-match-form/delete-match-form.component';
+import { DeleteMatchTableComponent } from './components/delete-match-table/delete-match-table.component';
+import { UpdateMatchTableComponent } from './components/update-match-table/update-match-table.component';
+import { UpdateMatchFormComponent } from './components/update-match-form/update-match-form.component';
 
 const routes: Routes = [{
   path: "addMatch",
@@ -10,7 +12,15 @@ const routes: Routes = [{
 }, {
   path: "delMatch",
   pathMatch: "full",
-  component: DeleteMatchFormComponent
+  component: DeleteMatchTableComponent
+}, {
+  path: "updateMatch",
+  pathMatch: "full",
+  component: UpdateMatchTableComponent,
+}, {
+  path: "updateMatch/:id",
+  pathMatch: "full",
+  component: UpdateMatchFormComponent
 }];
 
 @NgModule({

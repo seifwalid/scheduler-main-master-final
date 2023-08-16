@@ -17,8 +17,18 @@
     <tr>
       <td *ngIf="action !== undefined">
         <button class="btn btn-transparent" (click)="action(match)">
-          <i [class]="actionIconClasses"></i>
+          <i [class]="actionIconClass"></i>
         </button>
+        <ng-template #link>
+          <a [routerLink]="match.id">
+            <i [class]="actionIconClass"> </i>
+          </a>
+        </ng-template>
+      </td>
+      <td *ngIf="link">
+        <a [routerLink]="match.id">
+          <i [class]="actionIconClass"> </i>
+        </a>
       </td>
       <td>{{ match.id }}</td>
       <td>{{ match.type }}</td>

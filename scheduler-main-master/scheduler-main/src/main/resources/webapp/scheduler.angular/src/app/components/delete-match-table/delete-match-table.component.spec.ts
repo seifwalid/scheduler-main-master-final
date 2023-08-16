@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteMatchFormComponent } from './delete-match-form.component';
+import { DeleteMatchTableComponent } from './delete-match-table.component';
 
 describe('DeleteMatchFormComponent', () => {
-  let component: DeleteMatchFormComponent;
-  let fixture: ComponentFixture<DeleteMatchFormComponent>;
+  let component: DeleteMatchTableComponent;
+  let fixture: ComponentFixture<DeleteMatchTableComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DeleteMatchFormComponent]
+      declarations: [DeleteMatchTableComponent]
     });
-    fixture = TestBed.createComponent(DeleteMatchFormComponent);
+    fixture = TestBed.createComponent(DeleteMatchTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

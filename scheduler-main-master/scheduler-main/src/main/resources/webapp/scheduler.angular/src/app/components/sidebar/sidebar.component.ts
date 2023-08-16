@@ -15,6 +15,9 @@ export class SidebarComponent {
     }, {
       label: "DEL match",
       routerLink: "/delMatch"
+    }, {
+      label: "UPDATE match",
+      routerLink: "/updateMatch"
     }],
   }];
 }

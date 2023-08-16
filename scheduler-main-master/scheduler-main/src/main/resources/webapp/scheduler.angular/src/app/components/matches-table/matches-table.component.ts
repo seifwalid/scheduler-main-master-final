@@ -12,7 +12,9 @@ export class MatchesTableComponent {
   @Input()
   action?: (match: MatchDisplay) => void;
   @Input()
-  actionIconClasses?: (string);
+  actionIconClass?: (string);
+  @Input()
+  link: boolean = false;
 
   constructor(private matchService: MatchService) {
   }

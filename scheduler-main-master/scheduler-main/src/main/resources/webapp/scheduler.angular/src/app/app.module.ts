@@ -17,9 +17,10 @@ import { CommonModule } from "@angular/common";
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddMatchFormComponent } from './components/add-match-form/add-match-form.component';
-import { UpdateMatchFormComponent } from './components/update-match-form/update-match-form.component';
-import { DeleteMatchFormComponent } from './components/delete-match-form/delete-match-form.component';
+import { UpdateMatchTableComponent } from './components/update-match-table/update-match-table.component';
+import { DeleteMatchTableComponent } from './components/delete-match-table/delete-match-table.component';
 import { MatchesTableComponent } from './components/matches-table/matches-table.component';
+import { UpdateMatchFormComponent } from './components/update-match-form/update-match-form.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +28,10 @@ import { MatchesTableComponent } from './components/matches-table/matches-table.
     SidebarComponent,
     NavbarComponent,
     AddMatchFormComponent,
-    UpdateMatchFormComponent,
-    DeleteMatchFormComponent,
-    MatchesTableComponent
+    UpdateMatchTableComponent,
+    DeleteMatchTableComponent,
+    MatchesTableComponent,
+    UpdateMatchFormComponent
   ],
   imports: [
     BrowserModule,

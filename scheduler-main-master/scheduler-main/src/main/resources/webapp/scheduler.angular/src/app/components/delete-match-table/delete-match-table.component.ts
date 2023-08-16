@@ -4,12 +4,12 @@ import { MatchService } from 'src/app/services/match.service';
 import { MatchDisplay } from 'src/app/types/Match';
 
 @Component({
-  selector: 'app-delete-match-form',
-  templateUrl: './delete-match-form.component.html',
-  styleUrls: ['./delete-match-form.component.css'],
+  selector: 'app-delete-match-table',
+  templateUrl: './delete-match-table.component.html',
+  styleUrls: ['./delete-match-table.component.css'],
   providers: [ConfirmationService]
 })
-export class DeleteMatchFormComponent {
+export class DeleteMatchTableComponent {
   constructor(
     private confirmationService: ConfirmationService,
     private matchService: MatchService
