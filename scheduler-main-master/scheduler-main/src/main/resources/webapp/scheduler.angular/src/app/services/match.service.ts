@@ -27,7 +27,8 @@ export class MatchService {
       schedule: matchData.schedule,
       referee: matchData.referee,
       homeTeam: matchData.homeTeam,
-      awayTeam: matchData.awayTeam
+      awayTeam: matchData.awayTeam,
+      timeSlot: 1
     }
 
     return post("match/addmatch", newMatch).then(response => {
