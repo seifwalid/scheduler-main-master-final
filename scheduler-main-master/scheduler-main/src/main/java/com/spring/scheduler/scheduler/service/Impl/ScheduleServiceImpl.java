@@ -50,6 +50,8 @@ public class ScheduleServiceImpl implements ScheduleService {
 		return exitstingSchedule;
 	}
 
+
+
 	@Override
 	public List<Schedule> getAllSchedules() {
 		return scheduleRepository.findAll();
@@ -88,6 +90,12 @@ public class ScheduleServiceImpl implements ScheduleService {
 			return schedules;
 		}
 		return schedules;
+	}
+
+	@Override
+	public Schedule getScheduleById(Long id) {
+		return scheduleRepository.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("Schedule", "ID", id));
 	}
 
 	@Override

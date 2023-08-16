@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
@@ -46,6 +47,7 @@ public class Schedule {
 	private ScheduleType scheduleType;
 
 	@OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonBackReference
 	private List<Match> matchesList;
 
 	@ManyToMany

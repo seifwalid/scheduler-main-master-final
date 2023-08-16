@@ -2,6 +2,7 @@ package com.spring.scheduler.scheduler.controller;
 
 import java.util.List;
 
+import com.spring.scheduler.scheduler.Dto.MatchDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,14 +44,14 @@ public class MatchController {
     @GetMapping("/{match_id}")
     public Match match(@PathVariable long match_id){return matchService.getMatchById(match_id);}
     @PostMapping("/addmatch")
-    public ResponseEntity<Match> addMatch(@RequestBody Match match, HttpSession session) {
+    public ResponseEntity<Match> addMatch(@RequestBody MatchDto match, HttpSession session) {
 
         session.setAttribute("match", match);
         return new ResponseEntity<Match>(matchService.saveMatch(match), HttpStatus.CREATED);
     }
 
     @PutMapping("/{match_id}")
-    public ResponseEntity<Match> editMatch(@PathVariable Long match_id, @RequestBody Match match, HttpSession session) {
+    public ResponseEntity<Match> editMatch(@PathVariable Long match_id, @RequestBody MatchDto match, HttpSession session) {
 
         session.getAttribute("match");
 
