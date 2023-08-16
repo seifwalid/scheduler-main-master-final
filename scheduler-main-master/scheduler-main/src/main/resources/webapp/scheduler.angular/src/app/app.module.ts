@@ -8,6 +8,8 @@ import { MenuModule } from 'primeng/menu';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
+import { ConfirmDialogModule } from 'primeng/confirmdialog'
+import { TableModule } from 'primeng/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,7 +39,9 @@ import { DeleteMatchFormComponent } from './components/delete-match-form/delete-
     ReactiveFormsModule,
     InputTextModule,
     DropdownModule,
-    ButtonModule
+    ButtonModule,
+    TableModule,
+    ConfirmDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

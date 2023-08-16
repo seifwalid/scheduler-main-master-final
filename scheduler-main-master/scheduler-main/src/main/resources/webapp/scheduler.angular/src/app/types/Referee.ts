@@ -2,7 +2,7 @@ import Match from "./Match";
 
 interface Referee {
   id: number;
-  name?: string;
+  name: string;
   matches?: Match[];
 }
 

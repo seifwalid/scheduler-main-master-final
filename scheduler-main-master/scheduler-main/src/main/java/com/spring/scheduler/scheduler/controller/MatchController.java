@@ -45,7 +45,6 @@ public class MatchController {
     public Match match(@PathVariable long match_id){return matchService.getMatchById(match_id);}
     @PostMapping("/addmatch")
     public ResponseEntity<Match> addMatch(@RequestBody MatchDto match, HttpSession session) {
-
         session.setAttribute("match", match);
         return new ResponseEntity<Match>(matchService.saveMatch(match), HttpStatus.CREATED);
     }

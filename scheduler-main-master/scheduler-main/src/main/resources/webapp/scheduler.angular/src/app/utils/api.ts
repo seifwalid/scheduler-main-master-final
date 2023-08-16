@@ -6,8 +6,14 @@ export function apiDir(endpoint: string) {
   return baseUrl + endpoint;
 }
 
-export function post(endpoint: string, body: any) {
+export async function post(endpoint: string, body: any) {
   return axios.post(apiDir(endpoint), body).catch(err => {
+    console.log("there's an error: ", err);
+  });
+}
+
+export async function del(endpoint: string) {
+  return axios.delete(apiDir(endpoint)).catch(err => {
     console.log("there's an error: ", err);
   });
 }

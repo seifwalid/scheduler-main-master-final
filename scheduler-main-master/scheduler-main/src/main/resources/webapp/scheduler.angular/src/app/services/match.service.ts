@@ -1,36 +1,50 @@
 import { Injectable } from '@angular/core';
-import { apiDir, post } from '../utils/api';
+import { apiDir, del, post } from '../utils/api';
 import { fromFetch } from 'rxjs/fetch';
-import Match from '../types/Match';
+import Match, { matchToMatchDisplay } from '../types/Match';
+import { BehaviorSubject, Subject, map, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatchService {
-  matches$ = fromFetch(apiDir("match/matches"), {
+  private fetchSignal$ = new BehaviorSubject(0);
+  private fetchedMatches$ = fromFetch(apiDir("match/matches"), {
     selector: response => response.json() as Promise<Match[]>
-  })
+  }).pipe(
+    map((matches: Match[]) => matches.map(matchToMatchDisplay))
+  )
 
-  addMatch(matchData: Partial<Record<keyof Match, string | null>>) {
+  matches$ = this.fetchSignal$.pipe(
+    switchMap(() => this.fetchedMatches$)
+  )
+
+  async addMatch(matchData: Partial<Record<keyof Match, string | null>>) {
     const newMatch = {
       type: matchData.type,
       date_time: matchData.date_time,
       stadium: matchData.stadium,
-      schedule: {
-        id: matchData.schedule
-      },
-      referee: {
-        id: matchData.referee
-      },
-      homeTeam: {
-        id: matchData.homeTeam
-      },
-      awayTeam: {
-        id: matchData.awayTeam
-      }
+      schedule: matchData.schedule,
+      referee: matchData.referee,
+      homeTeam: matchData.homeTeam,
+      awayTeam: matchData.awayTeam
     }
 
-    post("match/addMatch", newMatch).then(response => console.log(response));
+    return post("match/addmatch", newMatch).then(response => {
+      console.log(response);
+      this.refreshMatches();
+    });
+  }
+
+  async delMatch(id: number) {
+    return del(`match/${id}`).then(response => {
+      console.log(response);
+      this.refreshMatches();
+    });
+  }
+
+  refreshMatches() {
+    this.fetchSignal$.next(0);
   }
 
   constructor() { }

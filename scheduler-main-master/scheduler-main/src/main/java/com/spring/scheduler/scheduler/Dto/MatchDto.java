@@ -19,8 +19,6 @@ public class MatchDto {
         private Long schedule ;
         private Long timeSlot ;
 
-
-
         // Other fields, getters, and setters
     }
 

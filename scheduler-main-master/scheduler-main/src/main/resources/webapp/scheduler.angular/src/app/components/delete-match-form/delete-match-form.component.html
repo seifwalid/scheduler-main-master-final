@@ -1,1 +1,36 @@
-<p>delete-match-form works!</p>
+<h3>DELETE Match</h3>
+<p-confirmDialog></p-confirmDialog>
+<p-table [value]="(matches$ | async) ?? []">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>action</th>
+      <th>id</th>
+      <th>type</th>
+      <th>date_time</th>
+      <th>schedule</th>
+      <th>stadium</th>
+      <th>referee</th>
+      <th>homeTeam</th>
+      <th>awayTeam</th>
+      <th>timeSlot</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-match>
+    <tr>
+      <td>
+        <button class="btn btn-transparent" (click)="promptDelete(match.id)">
+          <i class="pi pi-trash text-danger"></i>
+        </button>
+      </td>
+      <td>{{ match.id }}</td>
+      <td>{{ match.type }}</td>
+      <td>{{ match.date_time }}</td>
+      <td>{{ match.schedule }}</td>
+      <td>{{ match.stadium }}</td>
+      <td>{{ match.referee }}</td>
+      <td>{{ match.homeTeam }}</td>
+      <td>{{ match.awayTeam }}</td>
+      <td>{{ match.timeSlot }}</td>
+    </tr>
+  </ng-template>
+</p-table>
