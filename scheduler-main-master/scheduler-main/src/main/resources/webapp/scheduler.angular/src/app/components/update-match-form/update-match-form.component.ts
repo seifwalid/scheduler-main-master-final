@@ -66,6 +66,7 @@ export class UpdateMatchFormComponent implements OnInit {
   schedules$ = this.scheduleService.schedules$;
 
   submitForm() {
-    this.matchService.updateMatch(this.matchId, this.matchForm.value)
+    this.matchService.updateMatch(this.matchId, this.matchForm.value);
+    this.router.navigate(['/updateMatch']);
   }
 }
