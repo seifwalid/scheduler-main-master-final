@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
 import { MatchService } from 'src/app/services/match.service';
+import { MatchDisplay } from 'src/app/types/Match';
 
 @Component({
   selector: 'app-delete-match-form',
@@ -14,7 +15,7 @@ export class DeleteMatchFormComponent {
     private matchService: MatchService
   ) { }
 
-  promptDelete(id: number) {
+  promptDelete = ({ id }: MatchDisplay): void => {
     this.confirmationService.confirm({
       header: "Delete",
       message: `Are you sure you want to delete match #${id}`,
@@ -23,8 +24,6 @@ export class DeleteMatchFormComponent {
       acceptLabel: "Sure",
       rejectLabel: "Go back",
       accept: () => this.matchService.delMatch(id),
-    })
+    });
   }
-
-  matches$ = this.matchService.matches$;
 }

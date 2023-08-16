@@ -19,6 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddMatchFormComponent } from './components/add-match-form/add-match-form.component';
 import { UpdateMatchFormComponent } from './components/update-match-form/update-match-form.component';
 import { DeleteMatchFormComponent } from './components/delete-match-form/delete-match-form.component';
+import { MatchesTableComponent } from './components/matches-table/matches-table.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DeleteMatchFormComponent } from './components/delete-match-form/delete-
     NavbarComponent,
     AddMatchFormComponent,
     UpdateMatchFormComponent,
-    DeleteMatchFormComponent
+    DeleteMatchFormComponent,
+    MatchesTableComponent
   ],
   imports: [
     BrowserModule,
